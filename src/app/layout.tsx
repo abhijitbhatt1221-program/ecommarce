@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-geist-sans' });
 
 export const metadata: Metadata = {
-  title: "Jules Store | E-Commerce",
-  description: "A complete e-commerce store built with Next.js",
+  title: "Premium 3D Portfolio",
+  description: "Interactive 3D animated portfolio website",
 };
 
 export default function RootLayout({
@@ -17,16 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 min-h-screen flex flex-col`}>
-        <Navbar />
-        <main className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
-          {children}
-        </main>
-        <footer className="bg-white border-t py-6">
-          <div className="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Jules Store. All rights reserved.
-          </div>
-        </footer>
+      <body className={`${inter.variable} bg-black min-h-screen text-white flex flex-col`}>
+        <SmoothScroll>
+          <main className="flex-grow w-full">
+            {children}
+          </main>
+        </SmoothScroll>
       </body>
     </html>
   );
